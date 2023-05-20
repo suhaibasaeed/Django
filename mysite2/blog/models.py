@@ -6,6 +6,13 @@ from django.utils import timezone
 class Post(models.Model):
     """ Posts have title, short label (slug) and body"""
     
+    # Status field of posts - Enum class
+    class Status(models.TextChoices):
+        # Available choices
+        DRAFT = 'DF', 'Draft'
+        PUBLISHED = 'PB', 'Published'
+    
+    
     # Charfield corresponds to VARCHAR column in SQL DB
     title = models.CharField(max_length=250)
     # Also a VARCHAR column, but used to build a URL
@@ -18,6 +25,9 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     # Store when object was last updated - auto update date when object is saved
     updated = models.DateTimeField(auto_now=True)
+    # Status of post - Enum class
+    status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
+
 
     # Meta class to specify metadata about the model
     class Meta:

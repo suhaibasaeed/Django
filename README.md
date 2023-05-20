@@ -30,3 +30,20 @@
         * **wsgi.py** - Config to run project as WSGI (Web Server Gateway Interface) app
           * With web server that are WSGI-compatiable
             * E.g. APache, Gunicorn, uWSGI
+  
+### **Application Structure**
+* ** Blog app directory **
+  * **__init__.py**
+  * **admin.py** - Register models we want in optional django admin site
+  * **apps.py** - Main config of blog app
+  * **migrations** - Directory with app DB migrations
+    * Allows Django to track any changes to model and sync DB in correspondance
+    * Also contains __init__.py
+  * **models.py** - App data models
+    * Each model maps to single DB table
+      * Attribute of class represents DB field
+    * Can be left empty
+    * 
+  * **tests.py** - Tests for application
+  * **views.py** - Logic of app goes inside here
+    * Each view gets HTTP request, processes request and returns response

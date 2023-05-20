@@ -19,10 +19,14 @@ class Post(models.Model):
     # Store when object was last updated - auto update date when object is saved
     updated = models.DateTimeField(auto_now=True)
 
-    # Meta class to specify model-specific options
+    # Meta class to specify metadata about the model
     class Meta:
-        # Order results by publish field in descending order
+        # Order results by publish field in descending order - Used for DB queries
         ordering = ('-publish',)
+        # DB index for publish field - Improve performance of queries
+        indexes = [
+            models.Index(fields=['-publish',]),
+        ]
     
     def __str__(self):
         """ Return string representation of object"""

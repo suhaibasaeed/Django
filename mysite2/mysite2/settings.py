@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Blog app
+    'blog.apps.BlogConfig',
 ]
 # Middleware to be executed
 MIDDLEWARE = [

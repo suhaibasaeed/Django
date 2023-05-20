@@ -24,21 +24,24 @@ SECRET_KEY = 'django-insecure-4p+c@45_i)+kv9lf9gqo4q^3+%r*(h6u6lzy=50#$dl-9kq%u9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+# Add Domain/host here - Doesn't work when debug is True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Application definition - Which apps are active for this site
 
 INSTALLED_APPS = [
+    # Admin site
     'django.contrib.admin',
+    # Auth framework
     'django.contrib.auth',
+    # Other Frameworks 
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+# Middleware to be executed
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+# Python module where root URL patterns are defined
 ROOT_URLCONF = 'mysite2.urls'
 
 TEMPLATES = [
@@ -72,7 +75,7 @@ WSGI_APPLICATION = 'mysite2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+# DB settings
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -108,7 +111,7 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
+# Django supports timezone-aware datetime objects
 USE_TZ = True
 
 

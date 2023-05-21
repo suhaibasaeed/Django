@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 # Data model for blog posts
@@ -17,6 +18,8 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     # Also a VARCHAR column, but used to build a URL
     slug = models.SlugField(max_length=250)
+    # Foreign key to User model - One to many relationship
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     # Textfield corresponds to TEXT column in SQL DB - 
     body = models.TextField()
     # Date and time of publication - DATETIME column in SQL DB
